@@ -4,19 +4,9 @@ Vue.use(VueRouter)
 const router = new VueRouter({
     routes: [
         {
-            path: '/hoc',
-            name: 'hoc',
-            component: () => import('@/views/hoc-test-index.vue')
-        },
-        {
-            path: '/prop',
-            name: 'prop',
-            component: () => import('@/views/prop-test-index.vue')
-        },
-        {
-            path: '/hooks',
-            name: 'hooks',
-            component: () => import('@/views/hooks-test-index.vue')
+            path: '/constructor',
+            name: 'constructor',
+            component: () => import('@/views/the-constructor.vue')
         }
     ]
 })
