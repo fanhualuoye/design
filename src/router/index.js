@@ -20,6 +20,18 @@ const router = new VueRouter({
             path: '/singleton',
             name: 'singleton',
             component: () => import('@/views/singleton.vue')
+        },
+        // 观察者
+        {
+            path: '/observer',
+            name: 'observer',
+            component: () => import('@/views/the-observer.vue')
+        },
+        // 观察者
+        {
+            path: '/broker',
+            name: 'broker',
+            component: () => import('@/views/broker.vue')
         }
     ]
 })
