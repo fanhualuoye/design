@@ -27,11 +27,17 @@ const router = new VueRouter({
             name: 'observer',
             component: () => import('@/views/the-observer.vue')
         },
-        // 观察者
+        // 中介者
         {
             path: '/broker',
             name: 'broker',
             component: () => import('@/views/broker.vue')
+        },
+        // 中介者
+        {
+            path: '/command',
+            name: 'command',
+            component: () => import('@/views/command.vue')
         }
     ]
 })

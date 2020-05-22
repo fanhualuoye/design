@@ -1,4 +1,4 @@
-// 定义一个中介者， 用来统一处理所有玩家的交互行为
+// 1.定义一个中介者， 用来统一处理所有玩家的交互行为
 const playerDirector = (function () {
     const players = {} // 保存所有玩家
     const operations = {} // 中介者可以执行的操作
@@ -61,13 +61,13 @@ const playerDirector = (function () {
     }
 })()
 
-// 定义玩家
+// 2.定义玩家，有哪些属性
 function Player (name, teamColor) {
     this.name = name // 角色名字
     this.teamColor = teamColor // 队伍颜色
     this.state = 'alive' // 玩家生存状态
 }
-// 玩家行为
+// 玩家行为，用来处理个体的行为
 Player.prototype.win = function () {
     console.log(this.name + ' won ')
 }
@@ -88,7 +88,7 @@ Player.prototype.changeTeam = function (color) {
     playerDirector.ReceiveMessage('changeTeam', this, color) // 给中介者发送消息，玩家换队
 }
 
-
+// 3.外部访问的入口
 const playerFactory = function (name, teamColor) {
     const newPlayer = new Player(name, teamColor) // 创造一个新的玩家对象
     playerDirector.ReceiveMessage('addPlayer', newPlayer) // 给中介者发送消息，新增玩家
