@@ -33,11 +33,28 @@ const router = new VueRouter({
             name: 'broker',
             component: () => import('@/views/broker.vue')
         },
-        // 中介者
+        // 命令模式
         {
             path: '/command',
             name: 'command',
             component: () => import('@/views/command.vue')
+        },
+        // 工厂模式
+        {
+            path: '/factory',
+            name: 'factory',
+            component: () => import('@/views/factory.vue')
+        },
+        // 适配器模式
+        {
+            path: '/adapter',
+            name: 'adapter',
+            component: () => import('@/views/adapter.vue')
+        },  // 装饰者模式
+        {
+            path: '/decorator',
+            name: 'decorator',
+            component: () => import('@/views/decorator.vue')
         }
     ]
 })
