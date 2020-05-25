@@ -50,11 +50,18 @@ const router = new VueRouter({
             path: '/adapter',
             name: 'adapter',
             component: () => import('@/views/adapter.vue')
-        },  // 装饰者模式
+        },
+        // 装饰者模式
         {
             path: '/decorator',
             name: 'decorator',
             component: () => import('@/views/decorator.vue')
+        },
+        // 享元模式
+        {
+            path: '/flyweight',
+            name: 'flyweight',
+            component: () => import('@/views/flyweight.vue')
         }
     ]
 })
