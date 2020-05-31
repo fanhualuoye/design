@@ -21,6 +21,12 @@ const router = new VueRouter({
             name: 'singleton',
             component: () => import('@/views/singleton.vue')
         },
+        // 策略模式
+        {
+            path: '/strategy',
+            name: 'strategy',
+            component: () => import('@/views/strategy.vue')
+        },
         // 观察者
         {
             path: '/observer',
@@ -62,6 +68,24 @@ const router = new VueRouter({
             path: '/flyweight',
             name: 'flyweight',
             component: () => import('@/views/flyweight.vue')
+        },
+        // 代理模式
+        {
+            path: '/proxy',
+            name: 'proxy',
+            component: () => import('@/views/proxy.vue')
+        },
+        // 迭代器模式
+        {
+            path: '/iterator',
+            name: 'iterator',
+            component: () => import('@/views/iterator.vue')
+        },
+        // 状态模式模式
+        {
+            path: '/state',
+            name: 'state',
+            component: () => import('@/views/state.vue')
         }
     ]
 })
