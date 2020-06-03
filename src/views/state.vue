@@ -14,6 +14,11 @@ export default {
         }
     },
     created () {
+        // 定义状态集合，有3种状态
+        // 1. download,它的下个状态是pause暂停，但3秒钟后（接口完成）变成删除
+        // 2. pause暂停，它的下个状态是download
+        // 3. deleted，它的下个状态是download
+        // getState 暴露当前状态
         const state = (() =>{
             this.currenState = "download"
             this.timer = ''
@@ -39,6 +44,8 @@ export default {
                 getState: () => this.currenState
             }
         })()
+        /// 状态管理，会自动按照我们定义的状态改变
+        // constructor构造函数，接收上面定义的state
         class Download {
             constructor(state) {
                 this.state = state;
@@ -49,8 +56,11 @@ export default {
             }
         }
         this.download = new Download(state)
+        // 可用在管理同一个按钮（地方），但是有多个状态
+        // 如聚宝盆，领取按钮，1.未达成步数，2.余额为空，3.可领取，4未绑定收款账户...
     },
     methods: {
+        // 只要点击触发，会根据当前状态进行相应的操作
         click () {
             this.download.handleClick()
         }

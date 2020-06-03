@@ -64,6 +64,7 @@ export default {
 
         // 例子
         // 工厂进行对象实例化
+        // 它的作用是根据uploadType实例化对象，相同的uploadType只会实例化一次
         const UploadFactory = (function () {
             const createdFlyWeightObjs = {}
             return {
@@ -77,6 +78,10 @@ export default {
         })()
 
         // 管理器封装外部状态
+        // 组成有：
+        // 1.uploadDatabase所有对象集合（会分类）
+        // 2.处理外部状态和内部状态的方法add
+        // 3.从对象集合里获取对象的方法setExternalState
         const uploadManager = (function () {
             // 定义上传文件的集合
             const uploadDatabase = {}
@@ -113,7 +118,7 @@ export default {
         })()
 
         let id = 0
-        // 开始上传
+        // 开始上传，将需要上传的文件对象遍历，并一个个通过uploadManager管理器上传
         const startUpload = function (uploadType, files) { // uploadType 区分是控件还是 flash
             for (let i = 0; i < files.length; i++) {
                 const file = files[i]
@@ -135,6 +140,7 @@ export default {
                 return this.dom.parentNode.removeChild(this.dom)
             }
         }
+        // 执行开始上传方法，把6个文件分类上传
         // 接下来分别创建 3 个插件上传对象和 3 个 Flash 上传对象：
         startUpload('plugin', [
             {
